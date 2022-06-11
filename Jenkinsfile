@@ -60,4 +60,5 @@ pipeline{
                         echo "Name is '${Name}'"
                     }
                 }
+    }
 }                
