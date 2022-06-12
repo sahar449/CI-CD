@@ -54,8 +54,8 @@ pipeline{
           //              echo "Version is '${Version}'"
             //            echo "GroupID is '${GroupId}'"
               //          echo "Name is '${Name}'"
-                    }
-                }
+               //     }
+              //  }
 
         // Stage 5 : Deploying the build artifact to Apache Tomcat
         stage ('Deploy to Tomcat'){
