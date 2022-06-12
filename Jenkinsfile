@@ -44,5 +44,25 @@ pipeline{
                 echo "Name is '${Name}'"
                     }
         }
+         // Stage 5 : Deploying the build artifact to Apache Tomcat
+        stage ('Deploy to Tomcat'){
+            steps {
+                echo "Deploying ...."
+                sshPublisher(publishers: 
+                [sshPublisherDesc(
+                    configName: 'Ansible_Controller', 
+                    transfers: [
+                        sshTransfer(
+                                cleanRemote:false,
+                                execCommand: 'ansible-playbook /opt/playbooks/download_artifact.yaml -i /opt/playbooks/hosts',
+                                execTimeout: 120000
+                        )
+                    ], 
+                    usePromotionTimestamp: false, 
+                    useWorkspaceInPromotion: false, 
+                    verbose: false)
+                    ])
+            }
+        }
     }        
 }     
