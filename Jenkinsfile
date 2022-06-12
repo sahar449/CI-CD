@@ -54,7 +54,7 @@ pipeline{
                     transfers: [
                         sshTransfer(
                                 cleanRemote:false,
-                                execCommand: 'ansible-playbook /opt/playbooks/download_artifact.yaml -i /opt/playbooks/hosts',
+                                execCommand: 'ansible-playbook /opt/playbooks/download_artifcat.yaml -i /opt/playbooks/hosts',
                                 execTimeout: 120000
                         )
                     ], 
